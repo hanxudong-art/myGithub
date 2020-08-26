@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/layui.css">
+</head>
+<body>
+
+<script src="./js/layui.js"></script>
+
+<p th:text="${msg}" style="color: #0000FF; "></p>
+
+<div>
+    <form th:action="@{/fileUpload}" enctype="multipart/form-data" method="post">
+        <input type="file" name="file" />
+        <input type="submit" value="上传文件" />
+    </form>
+</div>
+
+
+<!--<p th:text="${msg}" style="color: #0000FF; margin-bottom: 10px;margin-left: 10px;"></p>-->
+<a class="layui-btn layui-btn-sm layui-btn-primary" style="margin-bottom: 10px;margin-left: 10px;" th:href="@{/download}">下载文件</a>
+
+
+<!--<img src="./e.jpg"/>-->
+
+<!--<a th:href="@{/email}">发送邮件</a>-->
+
+<!--<a th:href="@{/MimeEmail}">复杂邮件</a>-->
+
+</body>
+</html>

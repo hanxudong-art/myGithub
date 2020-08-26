@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>邮件</title>
+    <link rel="stylesheet" href="./css/layui.css">
+</head>
+<body>
+
+<div style="background-color:darkcyan;text-align: center;height:40px;line-height: 40px;">
+    <p >欢迎使用OO邮箱</p>
+</div>
+
+<!--<p><a class="layui-btn layui-btn-sm layui-btn-primary" th:href="@{/download}">图片很漂亮，必须下载</a></p>-->
+
+<div style="margin-top: 160px;margin-left: 60px;display: flex;justify-content: space-around;" >
+
+       <div  style="text-align: center">
+           <a th:href="@{/simpleEmail}">
+               <img src="e.jpg" style="width: 360px;height: 180px;border-radius: 10px;"/>
+           </a>
+           <p style="margin-top: 25px;">文本邮件<span style="font-size: 10px;color: grey;">点击图片发送邮件</span></p>
+       </div>
+
+    <div style="text-align: center">
+        <a th:href="@{/toMimeEmail}">
+            <img src="e.jpg" style="width: 360px;height: 180px;border-radius: 10px;"/>
+        </a>
+        <p style="margin-top: 25px;">附件邮件<span style="font-size: 10px;color: grey;">点击图片发送邮件</span></p>
+    </div>
+
+
+</div>
+
+</body>
+</html>

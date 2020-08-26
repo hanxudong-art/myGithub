@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>书籍管理</title>
+    <link rel="stylesheet" href="./css/layui.css">
+</head>
+<body>
+
+<div style="background-color: #0e90d2;text-align: center;border-radius: 7px;margin-bottom: 20px;width: 60%;margin-left: 20%;margin-top: 20px;" >
+    <h1>书籍管理中心</h1>
+</div>
+
+<div style="text-align: center;">
+    <a class="layui-btn layui-btn-sm layui-btn-primary" href="/add">添加书籍</a>
+    <a class="layui-btn layui-btn-sm layui-btn-primary" href="/tomain">返回主页</a>
+</div>
+
+<div style="margin-left: 10px; margin-bottom: 10px;text-align: center;width: 20%;">
+    <p th:text="${error}" style="color: red; "></p>
+</div>
+
+
+<form th:action="@{/search}" method="post" style="margin-left: 10px;margin-bottom: 10px;">
+    <label>查询书籍：</label>
+    <input type="text" name="queryBookName" placeholder="请输入要查询的书籍名称" >
+    <input type="submit" value="查询" class="layui-btn layui-btn-sm layui-btn-primary">
+</form>
+
+<!--springboot2.0.9以下生效-->
+<!--<div sec:authorize="isAuthenticated()">-->
+<!--    <a>-->
+<!--        用户名：<span sec:authentication="name"></span>-->
+<!--    </a>-->
+<!--</div>-->
+
+
+<div style="margin-top: 20px;">
+
+    <script src="./js/layui.js"></script>
+
+    <table class="layui-table">
+        <colgroup>
+            <col width="350">
+            <col width="350">
+            <col width="350">
+            <col>
+        </colgroup>
+        <thead>
+        <tr>
+            <th>bookID</th>
+            <th>bookName</th>
+            <th>bookCounts</th>
+            <th>detail</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+<!--        展示数据库中的书籍信息-->
+        <tr th:each="listbook:${booklist}">
+            <td th:text="${listbook.getBookID()}"></td>
+            <td th:text="${listbook.getBookName()}"></td>
+            <td th:text="${listbook.getBookCounts()}"></td>
+            <td th:text="${listbook.getDetail()}"></td>
+            <td>
+                <a class="layui-btn layui-btn-sm layui-btn-danger "   th:href="@{/del/}+${ listbook.getBookID() }">删除</a>
+                <a class="layui-btn layui-btn-sm layui-btn-primary"   th:href="@{/upd/}+${ listbook.getBookID() }">修改</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

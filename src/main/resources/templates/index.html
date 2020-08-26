@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>登录页面</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <link href="assets/styles.css" rel="stylesheet" media="screen">
+     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+  </head>
+  <body id="login">
+    <div class="container">
+
+<!--      登录请求操作：将name属性提交到后端进行认证-->
+      <form class="form-signin" action="/login" method="post">
+        <h2 class="form-signin-heading" style="text-align: center;margin-bottom:150px;margin-top: 50px;">用户认证</h2>
+
+<!--          <img style="width: 80px;height: 80px;" th:src="@{images/idea.jpg}"/>-->
+
+        <p th:text="${msg}" style="color: red;"></p>
+        <input type="text" name="username" value="HanYJ" class="input-block-level" placeholder="用户名" required>
+        <input type="password"  name="password" value="888888" class="input-block-level" placeholder="密码" required>
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> 记住我
+        </label>
+        <button class="btn btn-large btn-primary" type="submit" style="margin-left: 38%;margin-bottom: 10px">登录</button>
+
+          <div style="text-align: center">
+              <a>中文</a>
+              <a>English</a>
+          </div>
+      </form>
+
+    </div> <!-- /container -->
+    <script src="vendors/jquery-1.9.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

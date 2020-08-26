@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--一个mapper对应一个接口，通过namespace-->
+<mapper namespace="com.han.dao.BookMapper">
+
+<!--增加一本书-->
+
+    <insert id="addBook" parameterType="Books">
+      insert into manger.books (bookName, bookCounts, detail)
+      values (#{bookName},#{bookCounts},#{detail});
+    </insert>
+
+<!--    删除一本书-->
+
+    <delete id="deleteBookById" parameterType="int">
+    delete from manger.books where bookID=#{bookId}
+    </delete>
+
+<!--    更新一本书-->
+
+    <update id="updateBook" parameterType="Books">
+    update manger.books set bookName=#{bookName},bookCounts=#{bookCounts},detail=#{detail}
+    where bookID=#{bookID};
+    </update>
+
+<!--    根据id查询书-->
+
+    <select id="queryBooKById" resultType="Books">
+            select * from manger.books where bookID=#{bookId}
+    </select>
+
+<!--    根据书名查询书籍-->
+
+    <select id="queryBooKByName" resultType="Books">
+            select * from manger.books where bookName=#{bookName}
+    </select>
+
+<!--    查询数据库中所有书籍-->
+
+    <select id="queryAllBook" resultType="Books">
+    select * from manger.books
+    </select>
+
+</mapper>

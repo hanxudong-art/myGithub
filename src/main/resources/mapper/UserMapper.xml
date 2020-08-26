@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--一个mapper对应一个接口，通过namespace-->
+<mapper namespace="com.han.dao.UserMapper">
+
+    <insert  id="addUser" parameterType="User">
+      insert into manger.user (username, password, userId)
+      values (#{username},#{password},#{userId});
+    </insert>
+
+    <delete id="deleteUserById" parameterType="int">
+    delete from manger.user where userId=#{userId}
+    </delete>
+
+    <update id="updateUser" parameterType="User">
+    update manger.user set username=#{username},password=#{password},userId=#{userId}
+    where userId=#{userId};
+    </update>
+
+    <select id="queryUserById" resultType="User">
+            select * from manger.user where userId=#{userId}
+    </select>
+
+    <select id="queryUserByUsername" resultType="User">
+            select * from manger.user where username=#{name}
+    </select>
+
+    <select id="queryAllUser" resultType="User">
+    select * from manger.user
+    </select>
+
+</mapper>

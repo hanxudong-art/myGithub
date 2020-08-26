@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>添加书籍</title>
+    <link rel="stylesheet" href="./css/layui.css">
+</head>
+<body>
+
+<script src="./js/layui.js"></script>
+<div style="background-color: #009E94;margin-top: 30px;margin-bottom: 30px;width: 20%;text-align: center;border-radius: 7px;">
+    <h2>请输入书籍信息</h2>
+</div>
+<div>
+    <form class="layui-form" th:action="@{/addbook}" method="post">
+
+        <div class="layui-form-item" style="margin-bottom: 30px;">
+            <label class="layui-form-label">书籍号</label>
+            <div class="layui-input-block">
+                <input style="width: 90%;" type="text" name="bookID" required lay-verify="required" placeholder="请输入书籍号" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+
+        <div class="layui-form-item" style="margin-bottom: 30px;">
+            <label class="layui-form-label">书籍名称</label>
+            <div class="layui-input-block">
+                <input style="width: 90%;" type="number" name="bookName" required  lay-verify="required" placeholder="请输入书籍名称" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item" style="margin-bottom: 30px;">
+            <label class="layui-form-label">书籍数量</label>
+            <div class="layui-input-block">
+                <input style="width: 90%;" type="number" name="bookCounts" required lay-verify="required" placeholder="请输入书籍数量" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item" style="margin-bottom: 30px;">
+            <label class="layui-form-label">书籍描述</label>
+            <div class="layui-input-block">
+                <input style="width: 90%;" type="text" name="detail" required lay-verify="required" placeholder="请输入书籍描述" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="margin-bottom: 30px;">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="formDemo" >立即提交</button>
+                <!--                <button type="reset" class="layui-btn layui-btn-primary">重置</button>-->
+            </div>
+        </div>
+    </form>
+
+    <script>
+        //Demo
+        layui.use('form', function(){
+            var form = layui.form;
+
+            //监听提交
+            form.on('submit(formDemo)', function(data){
+                layer.msg(JSON.stringify(data.field));
+                return false;
+            });
+        });
+    </script>
+</div>
+
+</body>
+</html>
